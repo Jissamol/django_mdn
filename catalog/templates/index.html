@@ -1,0 +1,48 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Home - LocalLibrary{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="text-center">
+    <h1 class="display-4 text-primary">Local Library</h1>
+    
+  </div>
+
+  <div class="card shadow-lg border-0 mt-4">
+    <div class="card-body">
+      <h2 class="text-secondary">📊 Library Statistics</h2>
+      <p class="text-muted">The library has the following record counts:</p>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>📖 Books:</strong> <span class="badge bg-primary">{{ num_books }}</span>
+        </li>
+        <li class="list-group-item">
+          <strong>📚 Copies:</strong> <span class="badge bg-success">{{ num_instances }}</span>
+        </li>
+        <li class="list-group-item">
+          <strong>✅ Copies Available:</strong> <span class="badge bg-warning text-dark">{{ num_instances_available }}</span>
+        </li>
+        <li class="list-group-item">
+          <strong>✍️ Authors:</strong> <span class="badge bg-info">{{ num_authors }}</span>
+        </li>
+        <li class="list-group-item">
+          <strong>🌙 Books containing 'Midnight':</strong> <span class="badge bg-dark">{{ num_books_containing_word }}</span>
+        </li>
+        <li class="list-group-item">
+          <strong>📂 Genres containing 'Midnight':</strong> <span class="badge bg-secondary">{{ num_genres_containing_word }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alert alert-info text-center mt-4">
+    <p>
+      <strong>👀 You have visited this page:</strong> 
+      <span class="fw-bold text-danger">{{ num_visits }}</span> 
+      time{{ num_visits|pluralize }}.
+    </p>
+  </div>
+</div>
+{% endblock %}
